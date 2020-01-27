@@ -5,18 +5,22 @@ import click
 #from document import Doc
 from collector import Collector
 from document import Doc
+from getpass import getpass
 
 @click.command()
-@click.option('--test', default=1, help='Test command')
-def main(test):
-    gh = Collector('jabernardo', 'ca64613debbd02eb13ade603bcc48b8396583722')
-    docx = Doc(gh)
-    docx.save('output.docx')
+@click.option('--username', default=None, help='Output file')
+@click.option('--password', default=None, help='Passworrd')
+@click.option('--output', default='output.docx', help='Output file (output.docx)')
+def main(username, password, output):
+    if username == None:
+        username = input('Github Username: ')
     
-#    print(gh.getName())
-#    
-#    for repo in gh.getRepositories():
-#        print(repo.language)
+    if password == None:
+        password = getpass('Github Password: ')
+    
+    gh = Collector(username, password)
+    docx = Doc(gh)
+    docx.save(output)
     
 if __name__ == '__main__':
     main()

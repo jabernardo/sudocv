@@ -1,4 +1,3 @@
-
 from github import Github
 
 class Collector:
@@ -9,18 +8,16 @@ class Collector:
     def __init__(self, username, access_token):
         self.__github_api = Github(username, access_token)
         self.__user_name = username
+        self.get_repositories()
         
-    def getUser(self):
+    def get_user(self):
         return self.__github_api.get_user()
-        
-    def getName(self):
-        return self.__github_api.get_user().name
     
-    def getRepositories(self): 
-        self.__user_repos = self.__github_api.get_user().get_repos(self.__username)
+    def get_repositories(self): 
+        self.__user_repos = self.__github_api.get_user().get_repos(self.__user_name)
         return self.__user_repos
     
-    def getLanguages(self):
+    def get_languages(self):
         languages = []
         
         for repo in self.__user_repos:
