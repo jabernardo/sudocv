@@ -14,7 +14,11 @@ class Collector:
         return self.__github_api.get_user()
     
     def get_repositories(self): 
-        self.__user_repos = self.__github_api.get_user().get_repos(self.__user_name)
+        try:
+            self.__user_repos = self.__github_api.get_user().get_repos(self.__user_name)
+        except Exception as Error:
+            raise Error
+            
         return self.__user_repos
     
     def get_languages(self):
