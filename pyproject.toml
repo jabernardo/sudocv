@@ -9,6 +9,7 @@ python = "^3.6"
 pygithub = "^1.45"
 python-docx = "^0.8.10"
 click = "^7.0"
+pyinstaller = "^3.6"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

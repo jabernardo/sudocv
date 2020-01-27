@@ -1,3 +1,6 @@
 __pycache__
 output.docx
 poetry.lock
+sudocv.spec
+build
+dist

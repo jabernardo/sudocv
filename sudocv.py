@@ -1,10 +1,11 @@
+# -*- coding: utf-8 -*-
 __version__ = '0.1.0'
 
 import click
 
 #from document import Doc
-from collector import Collector
-from document import Doc
+from lib.collector import Collector
+from lib.document import Doc
 from getpass import getpass
 
 @click.command()
@@ -17,7 +18,7 @@ def main(username, password, output):
     
     if password == None:
         password = getpass('Github Password: ')
-    
+     
     gh = Collector(username, password)
     docx = Doc(gh)
     docx.save(output)
