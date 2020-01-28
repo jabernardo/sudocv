@@ -2,5 +2,6 @@ __pycache__
 output.docx
 poetry.lock
 sudocv.spec
+sudocv.egg-info
 build
 dist
